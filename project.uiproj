@@ -1,0 +1,6 @@
+{
+  "Name": "Shopping_Comparison",
+  "ProjectType": "Process",
+  "Description": "Shopping price comparison automation",
+  "MainFile": "Main.xaml"
+}

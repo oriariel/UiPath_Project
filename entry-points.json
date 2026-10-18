@@ -1,0 +1,10 @@
+{
+  "$schema": "https://cloud.uipath.com/draft/2024-12/entry-point",
+  "entryPoints": [
+    {
+      "filePath": "CompareCarts.xaml",
+      "uniqueId": "c4a1e2b7-6d44-4f0a-9c31-7b2e8a1d55f0",
+      "type": "process"
+    }
+  ]
+}

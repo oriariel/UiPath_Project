@@ -1,0 +1,202 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="CompareCarts" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Globalization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Linq.AsyncEnumerable</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Compare Carts" sap:VirtualizedContainerService.HintSize="1996,4368" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_ShoppingList" />
+      <Variable x:TypeArguments="x:String" Name="shufersalExcel" />
+      <Variable x:TypeArguments="x:String" Name="ramiLevyExcel" />
+      <Variable x:TypeArguments="x:String" Name="victoryExcel" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_ShufersalResults" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_RamiLevyResults" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_VictoryResults" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_Summary" />
+      <Variable x:TypeArguments="x:String" Name="comparisonExcel" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ReadCsvFile PathResource="{x:Null}" DataTable="[dt_ShoppingList]" Delimitator="Comma" DelimitatorForViewModel="Comma" DisplayName="Read CSV" FilePath="[System.IO.Path.Combine(Environment.CurrentDirectory, &quot;Shopping_List.csv&quot;)]" sap:VirtualizedContainerService.HintSize="450,170" sap2010:WorkflowViewState.IdRef="ReadCsvFile_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ReadCsvFile>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Number of products: &quot; &amp; dt_ShoppingList.Rows.Count.ToString()]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Shufersal" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_Shufersal" UnSafe="False" WorkflowFileName="Shufersal.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_ShoppingList">[dt_ShoppingList]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_ExcelPath">[shufersalExcel]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="LogMessage_Returned_Shufersal" Message="[&quot;Shufersal returned: &quot; &amp; shufersalExcel]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="RamiLevy" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_RamiLevy" UnSafe="False" WorkflowFileName="RamiLevy.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_ShoppingList">[dt_ShoppingList]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_ExcelPath">[ramiLevyExcel]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="LogMessage_Returned_RamiLevy" Message="[&quot;RamiLevy returned: &quot; &amp; ramiLevyExcel]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Victory" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_Victory" UnSafe="False" WorkflowFileName="Victory.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_ShoppingList">[dt_ShoppingList]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_ExcelPath">[victoryExcel]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="LogMessage_Returned_Victory" Message="[&quot;Victory returned: &quot; &amp; victoryExcel]" />
+    <ui:ReadRange AddHeaders="True" DataTable="[dt_ShufersalResults]" DisplayName="Read Shufersal Excel" sap:VirtualizedContainerService.HintSize="450,227" sap2010:WorkflowViewState.IdRef="ReadRange_Shufersal" Range="[&quot;A1&quot;]" SheetName="[&quot;שופרסל&quot;]" WorkbookPath="[shufersalExcel]" />
+    <ui:ReadRange AddHeaders="True" DataTable="[dt_RamiLevyResults]" DisplayName="Read RamiLevy Excel" sap:VirtualizedContainerService.HintSize="450,227" sap2010:WorkflowViewState.IdRef="ReadRange_RamiLevy" Range="[&quot;A1&quot;]" SheetName="[&quot;רמי לוי&quot;]" WorkbookPath="[ramiLevyExcel]" />
+    <ui:ReadRange AddHeaders="True" DataTable="[dt_VictoryResults]" DisplayName="Read Victory Excel" sap:VirtualizedContainerService.HintSize="450,227" sap2010:WorkflowViewState.IdRef="ReadRange_Victory" Range="[&quot;A1&quot;]" SheetName="[&quot;ויקטורי&quot;]" WorkbookPath="[victoryExcel]" />
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim labels As String() = {&quot;שופרסל&quot;, &quot;רמי לוי&quot;, &quot;ויקטורי&quot;}&#xA;Dim tables As System.Data.DataTable() = {dtShufersal, dtRami, dtVictory}&#xA;Dim totals(2) As Double&#xA;Dim found(2) As Integer&#xA;Dim missing(2) As Integer&#xA;Dim active(2) As Boolean&#xA;Dim columnNames As String() = {&quot;שופרסל&quot;, &quot;רמי לוי&quot;, &quot;ויקטורי&quot;}&#xA;dtSummary = New System.Data.DataTable()&#xA;dtSummary.Columns.Add(&quot;מדד&quot;)&#xA;dtSummary.Columns.Add(&quot;שופרסל&quot;)&#xA;dtSummary.Columns.Add(&quot;רמי לוי&quot;)&#xA;dtSummary.Columns.Add(&quot;ויקטורי&quot;)&#xA;For i As Integer = 0 To 2&#xA;    Dim table As System.Data.DataTable = tables(i)&#xA;    If table Is Nothing Then&#xA;        Continue For&#xA;    End If&#xA;    For Each source As System.Data.DataRow In table.Rows&#xA;        Dim status As String = source(&quot;Status&quot;).ToString()&#xA;        If status = &quot;לא נמצא&quot; Then&#xA;            missing(i) += 1&#xA;        Else&#xA;            found(i) += 1&#xA;            Dim line As Double = 0&#xA;            Double.TryParse(source(&quot;LineTotal&quot;).ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, line)&#xA;            totals(i) += line&#xA;        End If&#xA;    Next&#xA;    totals(i) = Math.Round(totals(i), 2, MidpointRounding.AwayFromZero)&#xA;    active(i) = found(i) &gt; 0&#xA;Next&#xA;Dim totalRow = dtSummary.NewRow()&#xA;totalRow(&quot;מדד&quot;) = &quot;סה&quot;&quot;כ הסל&quot;&#xA;Dim foundRow = dtSummary.NewRow()&#xA;foundRow(&quot;מדד&quot;) = &quot;נמצאו&quot;&#xA;Dim missingRow = dtSummary.NewRow()&#xA;missingRow(&quot;מדד&quot;) = &quot;לא נמצאו&quot;&#xA;Dim fairRow = dtSummary.NewRow()&#xA;fairRow(&quot;מדד&quot;) = &quot;סה&quot;&quot;כ השוואה הוגנת&quot;&#xA;For i As Integer = 0 To 2&#xA;    totalRow(columnNames(i)) = If(active(i), totals(i).ToString(&quot;0.00&quot;, CultureInfo.InvariantCulture), &quot;לא דורג&quot;)&#xA;    foundRow(columnNames(i)) = found(i).ToString()&#xA;    missingRow(columnNames(i)) = missing(i).ToString()&#xA;Next&#xA;dtSummary.Rows.Add(totalRow)&#xA;dtSummary.Rows.Add(foundRow)&#xA;dtSummary.Rows.Add(missingRow)&#xA;Dim bestIndex As Integer = -1&#xA;Dim worstIndex As Integer = -1&#xA;For i As Integer = 0 To 2&#xA;    If Not active(i) Then&#xA;        Continue For&#xA;    End If&#xA;    If bestIndex = -1 OrElse totals(i) &lt; totals(bestIndex) Then&#xA;        bestIndex = i&#xA;    End If&#xA;    If worstIndex = -1 OrElse totals(i) &gt; totals(worstIndex) Then&#xA;        worstIndex = i&#xA;    End If&#xA;Next&#xA;Dim cheapRow = dtSummary.NewRow()&#xA;cheapRow(&quot;מדד&quot;) = &quot;הזולה לפי סה&quot;&quot;כ הסל&quot;&#xA;If bestIndex &gt;= 0 Then&#xA;    cheapRow(&quot;שופרסל&quot;) = labels(bestIndex) &amp; &quot; (&quot; &amp; totals(bestIndex).ToString(&quot;0.00&quot;, CultureInfo.InvariantCulture) &amp; &quot;)&quot;&#xA;End If&#xA;dtSummary.Rows.Add(cheapRow)&#xA;Dim dearRow = dtSummary.NewRow()&#xA;dearRow(&quot;מדד&quot;) = &quot;היקרה לפי סה&quot;&quot;כ הסל&quot;&#xA;If worstIndex &gt;= 0 Then&#xA;    dearRow(&quot;שופרסל&quot;) = labels(worstIndex) &amp; &quot; (&quot; &amp; totals(worstIndex).ToString(&quot;0.00&quot;, CultureInfo.InvariantCulture) &amp; &quot;)&quot;&#xA;End If&#xA;dtSummary.Rows.Add(dearRow)&#xA;Dim saveRow = dtSummary.NewRow()&#xA;saveRow(&quot;מדד&quot;) = &quot;חיסכון מול היקרה&quot;&#xA;If bestIndex &gt;= 0 AndAlso worstIndex &gt;= 0 Then&#xA;    saveRow(&quot;שופרסל&quot;) = (totals(worstIndex) - totals(bestIndex)).ToString(&quot;0.00&quot;, CultureInfo.InvariantCulture)&#xA;End If&#xA;dtSummary.Rows.Add(saveRow)&#xA;Dim fairNames As New System.Collections.Generic.List(Of String)&#xA;Dim seed As System.Data.DataTable = Nothing&#xA;For i As Integer = 0 To 2&#xA;    If active(i) Then&#xA;        seed = tables(i)&#xA;        Exit For&#xA;    End If&#xA;Next&#xA;If seed IsNot Nothing Then&#xA;    For Each source As System.Data.DataRow In seed.Rows&#xA;        Dim product As String = source(&quot;RequestedProduct&quot;).ToString()&#xA;        If fairNames.Contains(product) Then&#xA;            Continue For&#xA;        End If&#xA;        Dim inAll As Boolean = True&#xA;        For i As Integer = 0 To 2&#xA;            If Not active(i) Then&#xA;                Continue For&#xA;            End If&#xA;            Dim hit As Boolean = False&#xA;            For Each candidate As System.Data.DataRow In tables(i).Rows&#xA;                If candidate(&quot;RequestedProduct&quot;).ToString() = product AndAlso candidate(&quot;Status&quot;).ToString() &lt;&gt; &quot;לא נמצא&quot; Then&#xA;                    hit = True&#xA;                    Exit For&#xA;                End If&#xA;            Next&#xA;            If Not hit Then&#xA;                inAll = False&#xA;                Exit For&#xA;            End If&#xA;        Next&#xA;        If inAll Then&#xA;            fairNames.Add(product)&#xA;        End If&#xA;    Next&#xA;End If&#xA;Dim fairTotals(2) As Double&#xA;For i As Integer = 0 To 2&#xA;    If Not active(i) Then&#xA;        fairRow(columnNames(i)) = &quot;לא נכללת&quot;&#xA;        Continue For&#xA;    End If&#xA;    For Each source As System.Data.DataRow In tables(i).Rows&#xA;        If fairNames.Contains(source(&quot;RequestedProduct&quot;).ToString()) AndAlso source(&quot;Status&quot;).ToString() &lt;&gt; &quot;לא נמצא&quot; Then&#xA;            Dim line As Double = 0&#xA;            Double.TryParse(source(&quot;LineTotal&quot;).ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, line)&#xA;            fairTotals(i) += line&#xA;        End If&#xA;    Next&#xA;    fairTotals(i) = Math.Round(fairTotals(i), 2, MidpointRounding.AwayFromZero)&#xA;    fairRow(columnNames(i)) = fairTotals(i).ToString(&quot;0.00&quot;, CultureInfo.InvariantCulture)&#xA;Next&#xA;Dim countRow = dtSummary.NewRow()&#xA;countRow(&quot;מדד&quot;) = &quot;מוצרים בהשוואה הוגנת&quot;&#xA;countRow(&quot;שופרסל&quot;) = fairNames.Count.ToString()&#xA;dtSummary.Rows.Add(countRow)&#xA;dtSummary.Rows.Add(fairRow)&#xA;Dim fairBest As Integer = -1&#xA;For i As Integer = 0 To 2&#xA;    If active(i) AndAlso (fairBest = -1 OrElse fairTotals(i) &lt; fairTotals(fairBest)) Then&#xA;        fairBest = i&#xA;    End If&#xA;Next&#xA;Dim fairCheap = dtSummary.NewRow()&#xA;fairCheap(&quot;מדד&quot;) = &quot;הזולה בהשוואה הוגנת&quot;&#xA;If fairBest &gt;= 0 Then&#xA;    fairCheap(&quot;שופרסל&quot;) = labels(fairBest) &amp; &quot; (&quot; &amp; fairTotals(fairBest).ToString(&quot;0.00&quot;, CultureInfo.InvariantCulture) &amp; &quot;)&quot;&#xA;End If&#xA;dtSummary.Rows.Add(fairCheap)&#xA;Dim noteRow = dtSummary.NewRow()&#xA;noteRow(&quot;מדד&quot;) = &quot;הערה&quot;&#xA;noteRow(&quot;שופרסל&quot;) = &quot;סל בלי מוצרים שנמצאו לא נכנס לדירוג. ההשוואה ההוגנת היא רק על מוצרים שנמצאו בכל הרשתות הפעילות.&quot;&#xA;dtSummary.Rows.Add(noteRow)&#xA;" DisplayName="Build comparison summary" sap:VirtualizedContainerService.HintSize="450,403" sap2010:WorkflowViewState.IdRef="InvokeCode_Summary">
+      <ui:InvokeCode.Arguments>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="dtShufersal">[dt_ShufersalResults]</InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="dtRami">[dt_RamiLevyResults]</InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="dtVictory">[dt_VictoryResults]</InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="dtSummary">[dt_Summary]</OutArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
+    <Assign DisplayName="Set comparison Excel path" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="Assign_ComparisonPath">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[comparisonExcel]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[System.IO.Path.Combine(Environment.CurrentDirectory, "Shopping_Comparison.xlsx")]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="If System.IO.File.Exists(excelPath) Then System.IO.File.Delete(excelPath)" DisplayName="Replace previous comparison Excel" sap:VirtualizedContainerService.HintSize="450,403" sap2010:WorkflowViewState.IdRef="InvokeCode_DeleteComparison">
+      <ui:InvokeCode.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="excelPath">[comparisonExcel]</InArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
+    <ui:WriteRange DataTable="[dt_Summary]" DisplayName="Write summary sheet" sap:VirtualizedContainerService.HintSize="450,279" sap2010:WorkflowViewState.IdRef="WriteRange_Summary" SheetName="[&quot;סיכום&quot;]" StartingCell="[&quot;A1&quot;]" WorkbookPath="[comparisonExcel]" />
+    <ui:WriteRange DataTable="[dt_ShufersalResults]" DisplayName="Write Shufersal sheet" sap:VirtualizedContainerService.HintSize="450,279" sap2010:WorkflowViewState.IdRef="WriteRange_CompareShufersal" SheetName="[&quot;שופרסל&quot;]" StartingCell="[&quot;A1&quot;]" WorkbookPath="[comparisonExcel]" />
+    <ui:WriteRange DataTable="[dt_RamiLevyResults]" DisplayName="Write Rami Levy sheet" sap:VirtualizedContainerService.HintSize="450,279" sap2010:WorkflowViewState.IdRef="WriteRange_CompareRami" SheetName="[&quot;רמי לוי&quot;]" StartingCell="[&quot;A1&quot;]" WorkbookPath="[comparisonExcel]" />
+    <ui:WriteRange DataTable="[dt_VictoryResults]" DisplayName="Write Victory sheet" sap:VirtualizedContainerService.HintSize="450,279" sap2010:WorkflowViewState.IdRef="WriteRange_CompareVictory" SheetName="[&quot;ויקטורי&quot;]" StartingCell="[&quot;A1&quot;]" WorkbookPath="[comparisonExcel]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,166" sap2010:WorkflowViewState.IdRef="LogMessage_Comparison" Message="[&quot;Shopping comparison excel: &quot; &amp; comparisonExcel]" />
+  </Sequence>
+</Activity>

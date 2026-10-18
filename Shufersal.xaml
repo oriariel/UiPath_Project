@@ -1,0 +1,609 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Shufersal2" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd2="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_ShoppingList" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="out_ExcelPath" Type="OutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Globalization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Linq.AsyncEnumerable</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Shufersal2" sap:VirtualizedContainerService.HintSize="712,11283.333333333334" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="bestPrice" />
+      <Variable x:TypeArguments="x:String" Name="bestProductName" />
+      <Variable x:TypeArguments="x:String" Default="|גרם|קג|ק&quot;ג|ליטר|מ&quot;ל|מל|בשקית|בקרטון|מארז|יחידה|פרוס|תריסר|גלילים|" Name="stopWords" />
+      <Variable x:TypeArguments="x:String" Name="requestedProduct" />
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="candidateScore" />
+      <Variable x:TypeArguments="x:Int32" Default="-1" Name="bestScore" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_ShoppingList" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_FinalResults" />
+      <Variable x:TypeArguments="x:String" Name="bestUnitPriceText" />
+      <Variable x:TypeArguments="x:Double" Name="effectiveUnitPrice" />
+      <Variable x:TypeArguments="x:String" Name="normalizedRequestedProduct" />
+      <Variable x:TypeArguments="x:String" Name="bestPromotionText" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign DisplayName="Copy shopping list" sap:VirtualizedContainerService.HintSize="704,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_InList_Victory">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:DataTable">[dt_ShoppingList]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:DataTable">[in_ShoppingList]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:BuildDataTable DataTable="[dt_FinalResults]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="704,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;RequestedProduct&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Quantity&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Unit&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;MatchedProduct&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Price&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Score&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Status&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;LineTotal&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:BuildDataTable>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="704,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_Start_Victory" Message="[&quot;Victory | products: &quot; &amp; dt_ShoppingList.Rows.Count.ToString()]" />
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Chrome שופרסל אונליין  סופרמרקט, פארם קוסמטיק" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="704,9782.666666666666" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="7c4e1a90-2b6d-4f58-9e13-a8d0c5f21b47" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="702,9578.666666666666" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_ShoppingList]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="668,9351.333333333334" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+              <ui:ForEachRow.Body>
+                <ActivityAction x:TypeArguments="sd:DataRow">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="666,9167.333333333334" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="632,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_5" Message="[CurrentRow(&quot;שם מוצר&quot;).ToString()]" />
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="632,175" sap2010:WorkflowViewState.IdRef="LogMessage_6" Message="[&quot;Quantity: &quot; &amp; CurrentRow(&quot;כמות&quot;).ToString() &amp; &quot; | Unit: &quot; &amp; CurrentRow(&quot;יחידה&quot;).ToString()]" />
+                    <Assign sap:VirtualizedContainerService.HintSize="632,175" sap2010:WorkflowViewState.IdRef="Assign_1">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Int32">[bestScore]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Int32">[-1]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="632,175" sap2010:WorkflowViewState.IdRef="Assign_7">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[bestProductName]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[String.Empty]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="632,175" sap2010:WorkflowViewState.IdRef="Assign_4">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[requestedProduct]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[CurrentRow("שם מוצר").ToString().Trim()]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="632,175" sap2010:WorkflowViewState.IdRef="Assign_18">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[normalizedRequestedProduct]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(requestedProduct.Replace("תריסר", ""), "\s*\d+(?:[.,]\d+)?\s*(?:גר(?:ם|['׳])?|מ[""״']?ל|ליטר|ק[""״']?ג|גלילים|גליל|יחידות|יחידה)", " ").Trim()]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="632,175" sap2010:WorkflowViewState.IdRef="Assign_9">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[bestPrice]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[String.Empty]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="632,175" sap2010:WorkflowViewState.IdRef="Assign_14">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[bestUnitPriceText]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[String.Empty]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="632,175" sap2010:WorkflowViewState.IdRef="Assign_19">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[bestPromotionText]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[String.Empty]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <If Condition="[String.IsNullOrWhiteSpace(CurrentRow(&quot;כמות&quot;).ToString()) OrElse Not System.Text.RegularExpressions.Regex.IsMatch(CurrentRow(&quot;כמות&quot;).ToString().Trim, &quot;^\d+([.,]\d+)?$&quot;) OrElse Val(CurrentRow(&quot;כמות&quot;).ToString().Replace(&quot;,&quot;, &quot;.&quot;)) &lt;= 0]" sap:VirtualizedContainerService.HintSize="632,7533.333333333333" sap2010:WorkflowViewState.IdRef="If_2">
+                      <If.Then>
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="630,226" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="596,166" sap2010:WorkflowViewState.IdRef="LogMessage_7" Message="[&quot;Skipped product due to empty quantity&quot;]" />
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="630,7176.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="sd:DataTable" Name="dt_SearchResults" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'INPUT js-site-search-in…'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="596,246" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="SameAsCard" ScopeIdentifier="7c4e1a90-2b6d-4f58-9e13-a8d0c5f21b47" Text="[normalizedRequestedProduct]" Version="V5">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="shufersal.co.il/online" DesignTimeRectangle="588, 246, 886, 55" ElementType="InputBox" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='js-site-search-input' tag='INPUT' /&gt;" Guid="cff11eb5-e05c-40eb-be89-10abeaf0387e" InformativeScreenshot="5528d3ab357c00a2b69eb0f0e1a273ea.jpg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='שופרסל אונליין : סופרמרקט, פארם קוסמטיקה והכל בית – כל מה שצריך במשלוח עד הבית | Shufersal' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                            </uix:NTypeInto.Target>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </uix:NTypeInto>
+                          <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="596,123" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'BUTTON חיפוש'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="596,194" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7c4e1a90-2b6d-4f58-9e13-a8d0c5f21b47" Timeout="20" Version="V5">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="shufersal.co.il/online/he/search" DesignTimeRectangle="593, 251, 122, 44" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl parentid='formSearchSubmit' tag='I' /&gt;" Guid="0c46f635-5f68-4431-a01c-661997c38f37" InformativeScreenshot="b1c2916d984406bb0568732ee8f70df8.jpg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Search לחם אחיד פרוס | Shufersal' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="596,123" sap2010:WorkflowViewState.IdRef="Delay_VictoryResults" />
+                          <uix:NExtractDataGeneric x:TypeArguments="sd:DataTable" ContinueOnError="True" DisplayName="Extract Table Data 'DIV mCSB_5_container'" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='ProductName'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column1' Name='PackageSize'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column2' Name='Price'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column3' Name='UnitPriceText'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column4' Name='SalePrice'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='4' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/row&gt;&lt;column exact='1' name='Column0' attr='fulltext'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='4' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='strong' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column1' attr='fulltext'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='4' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='3' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' text='|' idx='1' /&gt;&lt;webctrl tag='span' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column2' attr='fulltext'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='4' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='4' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='span' idx='1' /&gt;&lt;webctrl tag='span' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column3' attr='fulltext'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='4' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='5' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column4' attr='fulltext'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='4' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='4' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='span' idx='1' /&gt;&lt;webctrl tag='span' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" ExtractedData="[dt_SearchResults]" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="596,143" sap2010:WorkflowViewState.IdRef="NExtractDataGeneric`1_1" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="7c4e1a90-2b6d-4f58-9e13-a8d0c5f21b47" Version="V5">
+                            <uix:NExtractDataGeneric.Target>
+                              <uix:TargetAnchorable BrowserURL="https://www.shufersal.co.il/online/he/search?text=%D7%9C%D7%97%D7%9D+%D7%90%D7%97%D7%99%D7%93+%D7%A4%D7%A8%D7%95%D7%A1" DesignTimeRectangle="54, 506, 1804, 5303" ElementType="List" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='mainProductGrid' tag='UL' /&gt;" Guid="33ece7d1-4e97-4a75-bd75-599dadd9f2ec" InformativeScreenshot="0b14a31cce1e883755d24f9f8f805e3a.jpg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Search לחם אחיד פרוס | Shufersal' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                            </uix:NExtractDataGeneric.Target>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:String x:Key="bbbffa17-1024-47ac-a79a-41b860f664d0">Share</x:String>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </uix:NExtractDataGeneric>
+                          <ui:InvokeCode ContinueOnError="{x:Null}" Code="If results IsNot Nothing Then&#xA;    Dim needed As String() = {&quot;ProductName&quot;, &quot;PackageSize&quot;, &quot;Price&quot;, &quot;UnitPriceText&quot;, &quot;SalePrice&quot;, &quot;RegularPrice&quot;}&#xA;    For Each colName As String In needed&#xA;        If Not results.Columns.Contains(colName) Then&#xA;            results.Columns.Add(colName, GetType(String))&#xA;        End If&#xA;    Next&#xA;End If" DisplayName="Ensure result columns" sap:VirtualizedContainerService.HintSize="596,403" sap2010:WorkflowViewState.IdRef="InvokeCode_EnsureColumns_Victory">
+                            <ui:InvokeCode.Arguments>
+                              <InOutArgument x:TypeArguments="sd:DataTable" x:Key="results">[dt_SearchResults]</InOutArgument>
+                            </ui:InvokeCode.Arguments>
+                          </ui:InvokeCode>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="596,175" sap2010:WorkflowViewState.IdRef="LogMessage_8" Message="[If(dt_SearchResults IsNot Nothing AndAlso dt_SearchResults.Rows.Count &gt; 0, &quot;Product: &quot; &amp; dt_SearchResults.Rows(0)(&quot;ProductName&quot;).ToString() &amp; &quot; | Price: &quot; &amp; dt_SearchResults.Rows(0)(&quot;Price&quot;).ToString(), &quot;No results&quot;)]" />
+                          <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_SearchResults]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="596,3057" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+                            <ui:ForEachRow.Body>
+                              <ActivityAction x:TypeArguments="sd:DataRow">
+                                <ActivityAction.Argument>
+                                  <DelegateInArgument x:TypeArguments="sd:DataRow" Name="ResultRow" />
+                                </ActivityAction.Argument>
+                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="558,2875" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="524,175" sap2010:WorkflowViewState.IdRef="LogMessage_9" Message="[If(String.IsNullOrWhiteSpace(ResultRow(&quot;ProductName&quot;).ToString()), &quot;Missing product name&quot;, ResultRow(&quot;ProductName&quot;).ToString()) &amp; &quot; | Price: &quot; &amp; ResultRow(&quot;Price&quot;).ToString()]" />
+                                  <If Condition="[String.IsNullOrWhiteSpace(ResultRow(&quot;ProductName&quot;).ToString())]" sap:VirtualizedContainerService.HintSize="524,2640" sap2010:WorkflowViewState.IdRef="If_3">
+                                    <If.Then>
+                                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="522,226" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="488,166" sap2010:WorkflowViewState.IdRef="LogMessage_10" Message="[&quot;Skipped result: missing product Name&quot;]" />
+                                      </Sequence>
+                                    </If.Then>
+                                    <If.Else>
+                                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="522,2284" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <Assign sap:VirtualizedContainerService.HintSize="488,175" sap2010:WorkflowViewState.IdRef="Assign_2">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Int32">[candidateScore]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Int32">[0]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <ui:InvokeCode ContinueOnError="{x:Null}" Code="candidateScore = 0&#xA;Dim request As String = If(requestedProduct, &quot;&quot;).Replace(Convert.ToChar(1524), &quot;&quot;&quot;&quot;).Replace(Convert.ToChar(1523), &quot;'&quot;).Replace(Convert.ToChar(8217), &quot;'&quot;).Replace(Convert.ToChar(8220), &quot;&quot;&quot;&quot;).Replace(Convert.ToChar(8221), &quot;&quot;&quot;&quot;).Replace(&quot;'&quot;, &quot;&quot;).Replace(&quot;׳&quot;, &quot;&quot;).Trim()&#xA;Dim foundName As String = If(productName, &quot;&quot;).Replace(Convert.ToChar(1524), &quot;&quot;&quot;&quot;).Replace(Convert.ToChar(1523), &quot;'&quot;).Replace(Convert.ToChar(8217), &quot;'&quot;).Replace(Convert.ToChar(8220), &quot;&quot;&quot;&quot;).Replace(Convert.ToChar(8221), &quot;&quot;&quot;&quot;).Replace(&quot;'&quot;, &quot;&quot;).Replace(&quot;׳&quot;, &quot;&quot;).Trim()&#xA;Dim packageText As String = If(packageSize, &quot;&quot;).Replace(Convert.ToChar(1524), &quot;&quot;&quot;&quot;).Replace(Convert.ToChar(1523), &quot;'&quot;).Replace(Convert.ToChar(8217), &quot;'&quot;).Replace(Convert.ToChar(8220), &quot;&quot;&quot;&quot;).Replace(Convert.ToChar(8221), &quot;&quot;&quot;&quot;).Replace(&quot;'&quot;, &quot;&quot;).Replace(&quot;׳&quot;, &quot;&quot;).Trim()&#xA;Dim unitText As String = If(unitName, &quot;&quot;).Trim()&#xA;&#xA;If foundName &lt;&gt; &quot;&quot; Then&#xA;    Dim foundText As String = (foundName &amp; &quot; &quot; &amp; packageText).Trim()&#xA;&#xA;    If Not foundText.Contains(&quot;אזל&quot;) AndAlso Not foundText.Contains(&quot;לא זמין&quot;) Then&#xA;&#xA;        Dim unitWords As String = &quot;|גרם|קג|ק&quot;&quot;ג|ליטר|מל|מ&quot;&quot;ל|יחידה|יחידות|גלילים|גליל|תריסר|&quot;&#xA;        Dim preferenceWords As String = &quot;|בשקית|בקרטון|מארז|&quot;&#xA;&#xA;        Dim blocked As String() = {&#xA;            &quot;וניל&quot;, &quot;נטול&quot;, &quot;אומגה&quot;, &quot;מעושן&quot;, &quot;חופש&quot;,&#xA;            &quot;בננה&quot;, &quot;תות&quot;, &quot;קרמל&quot;, &quot;לוז&quot;, &quot;אגוז&quot;,&#xA;            &quot;מילוי&quot;, &quot;מריר&quot;, &quot;קרם&quot;, &quot;בטעם&quot;, &quot;משקה&quot;,&#xA;            &quot;חתוכ&quot;, &quot;קצוץ&quot;, &quot;חומץ&quot;, &quot;כבוש&quot;, &quot;כביש&quot;,&#xA;            &quot;מוקפא&quot;, &quot;משומר&quot;, &quot;שימור&quot;, &quot;רסק&quot;, &quot;רוטב&quot;,&#xA;            &quot;שרי&quot;, &quot;צ'יפס&quot;, &quot;ציפס&quot;, &quot;טוגן&quot;, &quot;ביסקוויט&quot;,&#xA;            &quot;ממולא&quot;, &quot;רביעייה&quot;, &quot;שישייה&quot;, &quot;שלישייה&quot;,&#xA;            &quot;שמינייה&quot;, &quot;פירור&quot;, &quot;פנקו&quot;, &quot;שניצל&quot;,&#xA;            &quot;פצפוצ&quot;, &quot;קצוצ&quot;, &quot;דאודורנט&quot;, &quot;דאורדנט&quot;,&#xA;            &quot;ניחוח&quot;, &quot;בריח&quot;, &quot;במלח&quot;, &quot;מטרנה&quot;, &quot;דייסה&quot;,&#xA;            &quot;מחית&quot;, &quot;גרבר&quot;, &quot;פרינוק&quot;, &quot;קינאה&quot;,&#xA;            &quot;קינואה&quot;, &quot;קשיו&quot;, &quot;תפוח&quot;,&#xA;            &quot;קפוא&quot;, &quot;תרסיס&quot;, &quot;קראנץ&quot;, &quot;קראנצ&quot;&#xA;        }&#xA;&#xA;        Dim rejected As Boolean = False&#xA;        Dim allow As String = request&#xA;        Dim requiredCount As Integer = 0&#xA;&#xA;        For Each rawWord As String In request.Split(&quot; &quot;c)&#xA;            Dim w As String = rawWord.Trim()&#xA;&#xA;            If w.Length = 0 Then Continue For&#xA;            If System.Text.RegularExpressions.Regex.IsMatch(w, &quot;^\d&quot;) Then Continue For&#xA;            If w = &quot;L&quot; OrElse w = &quot;M&quot; OrElse w = &quot;S&quot; Then Continue For&#xA;&#xA;            Dim bare As String = w.Replace(&quot;&quot;&quot;&quot;, &quot;&quot;).Replace(&quot;'&quot;, &quot;&quot;)&#xA;&#xA;            If unitWords.Replace(&quot;&quot;&quot;&quot;, &quot;&quot;).Replace(&quot;'&quot;, &quot;&quot;).Contains(&quot;|&quot; &amp; bare &amp; &quot;|&quot;) OrElse bare = &quot;גר&quot; Then Continue For&#xA;            If preferenceWords.Contains(&quot;|&quot; &amp; w &amp; &quot;|&quot;) Then Continue For&#xA;            If w = &quot;פסטה&quot; AndAlso request.Contains(&quot;ספגטי&quot;) Then Continue For&#xA;&#xA;            requiredCount += 1&#xA;&#xA;            If Not foundText.Contains(w) Then&#xA;                rejected = True&#xA;            End If&#xA;        Next&#xA;&#xA;        If requiredCount = 0 Then rejected = True&#xA;&#xA;        For Each bad As String In blocked&#xA;            If foundText.Contains(bad) AndAlso Not allow.Contains(bad) Then&#xA;                rejected = True&#xA;            End If&#xA;        Next&#xA;&#xA;        If request.Contains(&quot;שוקולד&quot;) AndAlso&#xA;           foundText.Contains(&quot;לבן&quot;) AndAlso&#xA;           Not request.Contains(&quot;לבן&quot;) Then&#xA;            rejected = True&#xA;        End If&#xA;&#xA;        If System.Text.RegularExpressions.Regex.IsMatch(foundText, &quot;\d+\s*[*×xX]\s*\d&quot;) AndAlso&#xA;           Not System.Text.RegularExpressions.Regex.IsMatch(request, &quot;\d+\s*[*×xX]\s*\d&quot;) Then&#xA;            rejected = True&#xA;        End If&#xA;&#xA;        Dim fat As System.Text.RegularExpressions.Match =&#xA;            System.Text.RegularExpressions.Regex.Match(request, &quot;(\d+)\s*%&quot;)&#xA;&#xA;        Dim fatConfirmed As Boolean = False&#xA;&#xA;        If fat.Success Then&#xA;            If System.Text.RegularExpressions.Regex.IsMatch(foundText, &quot;(^|\D)&quot; &amp; fat.Groups(1).Value &amp; &quot;\s*%&quot;) Then&#xA;                fatConfirmed = True&#xA;            Else&#xA;                rejected = True&#xA;            End If&#xA;        End If&#xA;&#xA;        Dim sizeSource As String =&#xA;            System.Text.RegularExpressions.Regex.Replace(foundText, &quot;ל-\s*100\s*(גרם|מ[&quot;&quot;״']?ל)&quot;, &quot;&quot;)&#xA;&#xA;        Dim reqMl As Double = -1&#xA;        Dim foundMl As Double = -1&#xA;        Dim reqG As Double = -1&#xA;        Dim foundG As Double = -1&#xA;        Dim reqCount As Double = -1&#xA;        Dim foundCount As Double = -1&#xA;&#xA;        Dim mlSmall As System.Text.RegularExpressions.Match = Nothing&#xA;        Dim gSmall As System.Text.RegularExpressions.Match = Nothing&#xA;&#xA;        Dim mlLit As System.Text.RegularExpressions.Match =&#xA;            System.Text.RegularExpressions.Regex.Match(request, &quot;(\d+(?:[.,]\d+)?)\s*ליטר&quot;)&#xA;&#xA;        If mlLit.Success Then&#xA;            reqMl = Double.Parse(mlLit.Groups(1).Value.Replace(&quot;,&quot;, &quot;.&quot;), System.Globalization.CultureInfo.InvariantCulture) * 1000&#xA;        End If&#xA;&#xA;        If reqMl &lt; 0 Then&#xA;            mlSmall = System.Text.RegularExpressions.Regex.Match(request, &quot;(\d+(?:[.,]\d+)?)\s*מ[&quot;&quot;״']?ל&quot;)&#xA;            If mlSmall.Success Then&#xA;                reqMl = Double.Parse(mlSmall.Groups(1).Value.Replace(&quot;,&quot;, &quot;.&quot;), System.Globalization.CultureInfo.InvariantCulture)&#xA;            End If&#xA;        End If&#xA;&#xA;        mlLit = System.Text.RegularExpressions.Regex.Match(sizeSource, &quot;(\d+(?:[.,]\d+)?)\s*ליטר&quot;)&#xA;&#xA;        If mlLit.Success Then&#xA;            foundMl = Double.Parse(mlLit.Groups(1).Value.Replace(&quot;,&quot;, &quot;.&quot;), System.Globalization.CultureInfo.InvariantCulture) * 1000&#xA;        End If&#xA;&#xA;        If foundMl &lt; 0 Then&#xA;            mlSmall = System.Text.RegularExpressions.Regex.Match(sizeSource, &quot;(\d+(?:[.,]\d+)?)\s*מ[&quot;&quot;״']?ל&quot;)&#xA;            If mlSmall.Success Then&#xA;                foundMl = Double.Parse(mlSmall.Groups(1).Value.Replace(&quot;,&quot;, &quot;.&quot;), System.Globalization.CultureInfo.InvariantCulture)&#xA;            End If&#xA;        End If&#xA;&#xA;        Dim gKg As System.Text.RegularExpressions.Match =&#xA;            System.Text.RegularExpressions.Regex.Match(request, &quot;(\d+(?:[.,]\d+)?)\s*ק[&quot;&quot;״']?ג&quot;)&#xA;&#xA;        If gKg.Success Then&#xA;            reqG = Double.Parse(gKg.Groups(1).Value.Replace(&quot;,&quot;, &quot;.&quot;), System.Globalization.CultureInfo.InvariantCulture) * 1000&#xA;        End If&#xA;&#xA;        If reqG &lt; 0 Then&#xA;            gSmall = System.Text.RegularExpressions.Regex.Match(request, &quot;(\d+(?:[.,]\d+)?)\s*גר(?:ם|['׳])?&quot;)&#xA;            If gSmall.Success Then&#xA;                reqG = Double.Parse(gSmall.Groups(1).Value.Replace(&quot;,&quot;, &quot;.&quot;), System.Globalization.CultureInfo.InvariantCulture)&#xA;            End If&#xA;        End If&#xA;&#xA;        gKg = System.Text.RegularExpressions.Regex.Match(sizeSource, &quot;(\d+(?:[.,]\d+)?)\s*ק[&quot;&quot;״']?ג&quot;)&#xA;&#xA;        If gKg.Success Then&#xA;            foundG = Double.Parse(gKg.Groups(1).Value.Replace(&quot;,&quot;, &quot;.&quot;), System.Globalization.CultureInfo.InvariantCulture) * 1000&#xA;        End If&#xA;&#xA;        If foundG &lt; 0 Then&#xA;            gSmall = System.Text.RegularExpressions.Regex.Match(sizeSource, &quot;(\d+(?:[.,]\d+)?)\s*גר(?:ם|['׳])?&quot;)&#xA;            If gSmall.Success Then&#xA;                foundG = Double.Parse(gSmall.Groups(1).Value.Replace(&quot;,&quot;, &quot;.&quot;), System.Globalization.CultureInfo.InvariantCulture)&#xA;            End If&#xA;        End If&#xA;&#xA;        If request.Contains(&quot;תריסר&quot;) Then reqCount = 12&#xA;&#xA;        Dim countRoll As System.Text.RegularExpressions.Match =&#xA;            System.Text.RegularExpressions.Regex.Match(request, &quot;(\d+)\s*גליל(?:ים)?&quot;)&#xA;&#xA;        If countRoll.Success Then&#xA;            reqCount = Double.Parse(countRoll.Groups(1).Value, System.Globalization.CultureInfo.InvariantCulture)&#xA;        End If&#xA;&#xA;        Dim countUnits As System.Text.RegularExpressions.Match =&#xA;            System.Text.RegularExpressions.Regex.Match(request, &quot;(\d+)\s*יחידות&quot;)&#xA;&#xA;        If countUnits.Success Then&#xA;            reqCount = Double.Parse(countUnits.Groups(1).Value, System.Globalization.CultureInfo.InvariantCulture)&#xA;        End If&#xA;&#xA;        If sizeSource.Contains(&quot;תריסר&quot;) Then foundCount = 12&#xA;&#xA;        countRoll = System.Text.RegularExpressions.Regex.Match(sizeSource, &quot;(\d+)\s*גליל(?:ים)?&quot;)&#xA;&#xA;        If countRoll.Success Then&#xA;            foundCount = Double.Parse(countRoll.Groups(1).Value, System.Globalization.CultureInfo.InvariantCulture)&#xA;        End If&#xA;&#xA;        countUnits = System.Text.RegularExpressions.Regex.Match(sizeSource, &quot;(\d+)\s*יחידות&quot;)&#xA;        If Not countUnits.Success Then countUnits = System.Text.RegularExpressions.Regex.Match(sizeSource, &quot;יחידות\s*(\d+)&quot;)&#xA;        If Not countUnits.Success Then countUnits = System.Text.RegularExpressions.Regex.Match(sizeSource, &quot;(\d+)\s*יח&quot;)&#xA;        If Not countUnits.Success Then countUnits = System.Text.RegularExpressions.Regex.Match(sizeSource, &quot;(\d+)\s*ביצ&quot;)&#xA;&#xA;        If Not countUnits.Success AndAlso request.Contains(&quot;תריסר&quot;) AndAlso&#xA;           System.Text.RegularExpressions.Regex.IsMatch(sizeSource, &quot;(^|\D)12(\D|$)&quot;) Then&#xA;            foundCount = 12&#xA;        End If&#xA;&#xA;        If countUnits.Success Then&#xA;            foundCount = Double.Parse(countUnits.Groups(1).Value, System.Globalization.CultureInfo.InvariantCulture)&#xA;        End If&#xA;&#xA;        Dim sizeConfirmed As Boolean = False&#xA;&#xA;        If reqMl &gt;= 0 AndAlso foundMl &gt;= 0 Then&#xA;            If Math.Abs(reqMl - foundMl) / reqMl &gt; 0.1 Then&#xA;                rejected = True&#xA;            Else&#xA;                sizeConfirmed = True&#xA;            End If&#xA;        ElseIf reqMl &gt;= 0 AndAlso foundMl &lt; 0 AndAlso unitText &lt;&gt; &quot;ק&quot;&quot;ג&quot; Then&#xA;            rejected = True&#xA;        End If&#xA;&#xA;        If reqG &gt;= 0 AndAlso foundG &gt;= 0 Then&#xA;            If Math.Abs(reqG - foundG) / reqG &gt; 0.1 Then&#xA;                rejected = True&#xA;            Else&#xA;                sizeConfirmed = True&#xA;            End If&#xA;        ElseIf reqG &gt;= 0 AndAlso foundG &lt; 0 AndAlso unitText &lt;&gt; &quot;ק&quot;&quot;ג&quot; Then&#xA;            rejected = True&#xA;        End If&#xA;&#xA;        If reqCount &gt;= 0 AndAlso foundCount &gt;= 0 Then&#xA;            If Math.Abs(reqCount - foundCount) &gt; 0.001 Then&#xA;                rejected = True&#xA;            Else&#xA;                sizeConfirmed = True&#xA;            End If&#xA;        ElseIf reqCount &gt;= 0 AndAlso foundCount &lt; 0 AndAlso unitText &lt;&gt; &quot;ק&quot;&quot;ג&quot; Then&#xA;            rejected = True&#xA;        End If&#xA;&#xA;        Dim reqGrade As String = &quot;&quot;&#xA;        Dim foundGrade As String = &quot;&quot;&#xA;&#xA;        If System.Text.RegularExpressions.Regex.IsMatch(request, &quot;(^|[^A-Za-z])L([^A-Za-z]|$)&quot;) Then reqGrade = &quot;L&quot;&#xA;        If System.Text.RegularExpressions.Regex.IsMatch(request, &quot;(^|[^A-Za-z])M([^A-Za-z]|$)&quot;) Then reqGrade = &quot;M&quot;&#xA;        If System.Text.RegularExpressions.Regex.IsMatch(foundText, &quot;(^|[^A-Za-z])L([^A-Za-z]|$)&quot;) Then foundGrade = &quot;L&quot;&#xA;        If System.Text.RegularExpressions.Regex.IsMatch(foundText, &quot;(^|[^A-Za-z])M([^A-Za-z]|$)&quot;) Then foundGrade = &quot;M&quot;&#xA;&#xA;        If reqGrade &lt;&gt; &quot;&quot; AndAlso (foundGrade = &quot;&quot; OrElse foundGrade &lt;&gt; reqGrade) Then&#xA;            rejected = True&#xA;        End If&#xA;&#xA;        If request.Contains(&quot;חלב&quot;) AndAlso foundText.Contains(&quot;שוקו&quot;) AndAlso Not foundText.Contains(&quot;שוקולד&quot;) AndAlso Not request.Contains(&quot;שוקו&quot;) Then rejected = True&#xA;        If unitText = &quot;ק&quot;&quot;ג&quot; AndAlso foundMl &gt;= 0 AndAlso foundG &lt; 0 Then rejected = True&#xA;&#xA;        If Not rejected Then&#xA;            Dim points As Integer = requiredCount * 20&#xA;&#xA;            If sizeConfirmed Then points += 15&#xA;            If fatConfirmed Then points += 15&#xA;&#xA;            For Each rawWord As String In request.Split(&quot; &quot;c)&#xA;                Dim pref As String = rawWord.Trim()&#xA;                If preferenceWords.Contains(&quot;|&quot; &amp; pref &amp; &quot;|&quot;) AndAlso foundText.Contains(pref) Then&#xA;                    points += 10&#xA;                End If&#xA;            Next&#xA;&#xA;            If unitText = &quot;ק&quot;&quot;ג&quot; Then points += 25&#xA;            If request.Contains(&quot;בשקית&quot;) AndAlso foundText.Contains(&quot;שקית&quot;) Then points += 12&#xA;&#xA;            candidateScore = points&#xA;        End If&#xA;    End If&#xA;End If" DisplayName="Score search result" sap:VirtualizedContainerService.HintSize="488,403" sap2010:WorkflowViewState.IdRef="InvokeCode_Score_Victory">
+                                          <ui:InvokeCode.Arguments>
+                                            <InArgument x:TypeArguments="x:String" x:Key="requestedProduct">[requestedProduct]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="productName">[ResultRow("ProductName").ToString()]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="packageSize">[If(ResultRow.Table.Columns.Contains("PackageSize"), ResultRow("PackageSize").ToString(), "")]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="unitName">[CurrentRow("יחידה").ToString()]</InArgument>
+                                            <OutArgument x:TypeArguments="x:Int32" x:Key="candidateScore">[candidateScore]</OutArgument>
+                                          </ui:InvokeCode.Arguments>
+                                        </ui:InvokeCode>
+                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="488,175" sap2010:WorkflowViewState.IdRef="LogMessage_13" Message="[&quot;Candidate: &quot; &amp; ResultRow(&quot;ProductName&quot;).ToString() &amp; &quot; | Score: &quot; &amp; candidateScore.ToString()]" />
+                                        <If Condition="[candidateScore &gt; 0]" sap:VirtualizedContainerService.HintSize="488,1471" sap2010:WorkflowViewState.IdRef="If_5">
+                                          <If.Then>
+                                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="486,1316" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="LogMessage_11" Message="[&quot;Valid candidate: &quot; &amp; ResultRow(&quot;ProductName&quot;).ToString() &amp; &quot; | Price: &quot; &amp; ResultRow(&quot;Price&quot;).ToString()]" />
+                                              <If Condition="[bestScore &lt;= 0 OrElse If(Double.Parse(If(ResultRow.Table.Columns.Contains(&quot;SalePrice&quot;) AndAlso System.Text.RegularExpressions.Regex.IsMatch(ResultRow(&quot;SalePrice&quot;).ToString(), &quot;\d&quot;) AndAlso Not System.Text.RegularExpressions.Regex.IsMatch(ResultRow(&quot;SalePrice&quot;).ToString(), &quot;\d+\s*(?:יח|ב\s*-)&quot;), System.Text.RegularExpressions.Regex.Match(ResultRow(&quot;SalePrice&quot;).ToString().Replace(&quot;₪&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;), &quot;\d+(\.\d+)?&quot;).Value, &quot;0&quot;), System.Globalization.CultureInfo.InvariantCulture) &gt; 0 AndAlso Double.Parse(If(ResultRow.Table.Columns.Contains(&quot;SalePrice&quot;) AndAlso System.Text.RegularExpressions.Regex.IsMatch(ResultRow(&quot;SalePrice&quot;).ToString(), &quot;\d&quot;) AndAlso Not System.Text.RegularExpressions.Regex.IsMatch(ResultRow(&quot;SalePrice&quot;).ToString(), &quot;\d+\s*(?:יח|ב\s*-)&quot;), System.Text.RegularExpressions.Regex.Match(ResultRow(&quot;SalePrice&quot;).ToString().Replace(&quot;₪&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;), &quot;\d+(\.\d+)?&quot;).Value, &quot;0&quot;), System.Globalization.CultureInfo.InvariantCulture) &lt; Double.Parse(If(System.Text.RegularExpressions.Regex.IsMatch(ResultRow(&quot;Price&quot;).ToString(), &quot;\d&quot;), System.Text.RegularExpressions.Regex.Match(ResultRow(&quot;Price&quot;).ToString().Replace(&quot;₪&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;), &quot;\d+(\.\d+)?&quot;).Value, &quot;999999&quot;), System.Globalization.CultureInfo.InvariantCulture), Double.Parse(If(ResultRow.Table.Columns.Contains(&quot;SalePrice&quot;) AndAlso System.Text.RegularExpressions.Regex.IsMatch(ResultRow(&quot;SalePrice&quot;).ToString(), &quot;\d&quot;) AndAlso Not System.Text.RegularExpressions.Regex.IsMatch(ResultRow(&quot;SalePrice&quot;).ToString(), &quot;\d+\s*(?:יח|ב\s*-)&quot;), System.Text.RegularExpressions.Regex.Match(ResultRow(&quot;SalePrice&quot;).ToString().Replace(&quot;₪&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;), &quot;\d+(\.\d+)?&quot;).Value, &quot;0&quot;), System.Globalization.CultureInfo.InvariantCulture), Double.Parse(If(System.Text.RegularExpressions.Regex.IsMatch(ResultRow(&quot;Price&quot;).ToString(), &quot;\d&quot;), System.Text.RegularExpressions.Regex.Match(ResultRow(&quot;Price&quot;).ToString().Replace(&quot;₪&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;), &quot;\d+(\.\d+)?&quot;).Value, &quot;999999&quot;), System.Globalization.CultureInfo.InvariantCulture)) &lt; Double.Parse(If(System.Text.RegularExpressions.Regex.IsMatch(If(String.IsNullOrWhiteSpace(bestPrice), &quot;999999&quot;, bestPrice), &quot;\d&quot;), System.Text.RegularExpressions.Regex.Match(If(String.IsNullOrWhiteSpace(bestPrice), &quot;999999&quot;, bestPrice).Replace(&quot;,&quot;, &quot;.&quot;), &quot;\d+(\.\d+)?&quot;).Value, &quot;999999&quot;), System.Globalization.CultureInfo.InvariantCulture) - 0.001 OrElse (Math.Abs(If(Double.Parse(If(ResultRow.Table.Columns.Contains(&quot;SalePrice&quot;) AndAlso System.Text.RegularExpressions.Regex.IsMatch(ResultRow(&quot;SalePrice&quot;).ToString(), &quot;\d&quot;) AndAlso Not System.Text.RegularExpressions.Regex.IsMatch(ResultRow(&quot;SalePrice&quot;).ToString(), &quot;\d+\s*(?:יח|ב\s*-)&quot;), System.Text.RegularExpressions.Regex.Match(ResultRow(&quot;SalePrice&quot;).ToString().Replace(&quot;₪&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;), &quot;\d+(\.\d+)?&quot;).Value, &quot;0&quot;), System.Globalization.CultureInfo.InvariantCulture) &gt; 0 AndAlso Double.Parse(If(ResultRow.Table.Columns.Contains(&quot;SalePrice&quot;) AndAlso System.Text.RegularExpressions.Regex.IsMatch(ResultRow(&quot;SalePrice&quot;).ToString(), &quot;\d&quot;) AndAlso Not System.Text.RegularExpressions.Regex.IsMatch(ResultRow(&quot;SalePrice&quot;).ToString(), &quot;\d+\s*(?:יח|ב\s*-)&quot;), System.Text.RegularExpressions.Regex.Match(ResultRow(&quot;SalePrice&quot;).ToString().Replace(&quot;₪&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;), &quot;\d+(\.\d+)?&quot;).Value, &quot;0&quot;), System.Globalization.CultureInfo.InvariantCulture) &lt; Double.Parse(If(System.Text.RegularExpressions.Regex.IsMatch(ResultRow(&quot;Price&quot;).ToString(), &quot;\d&quot;), System.Text.RegularExpressions.Regex.Match(ResultRow(&quot;Price&quot;).ToString().Replace(&quot;₪&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;), &quot;\d+(\.\d+)?&quot;).Value, &quot;999999&quot;), System.Globalization.CultureInfo.InvariantCulture), Double.Parse(If(ResultRow.Table.Columns.Contains(&quot;SalePrice&quot;) AndAlso System.Text.RegularExpressions.Regex.IsMatch(ResultRow(&quot;SalePrice&quot;).ToString(), &quot;\d&quot;) AndAlso Not System.Text.RegularExpressions.Regex.IsMatch(ResultRow(&quot;SalePrice&quot;).ToString(), &quot;\d+\s*(?:יח|ב\s*-)&quot;), System.Text.RegularExpressions.Regex.Match(ResultRow(&quot;SalePrice&quot;).ToString().Replace(&quot;₪&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;), &quot;\d+(\.\d+)?&quot;).Value, &quot;0&quot;), System.Globalization.CultureInfo.InvariantCulture), Double.Parse(If(System.Text.RegularExpressions.Regex.IsMatch(ResultRow(&quot;Price&quot;).ToString(), &quot;\d&quot;), System.Text.RegularExpressions.Regex.Match(ResultRow(&quot;Price&quot;).ToString().Replace(&quot;₪&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;), &quot;\d+(\.\d+)?&quot;).Value, &quot;999999&quot;), System.Globalization.CultureInfo.InvariantCulture)) - Double.Parse(If(System.Text.RegularExpressions.Regex.IsMatch(If(String.IsNullOrWhiteSpace(bestPrice), &quot;999999&quot;, bestPrice), &quot;\d&quot;), System.Text.RegularExpressions.Regex.Match(If(String.IsNullOrWhiteSpace(bestPrice), &quot;999999&quot;, bestPrice).Replace(&quot;,&quot;, &quot;.&quot;), &quot;\d+(\.\d+)?&quot;).Value, &quot;999999&quot;), System.Globalization.CultureInfo.InvariantCulture)) &lt; 0.001 AndAlso candidateScore &gt; bestScore)]" sap:VirtualizedContainerService.HintSize="452,1081" sap2010:WorkflowViewState.IdRef="If_6">
+                                                <If.Then>
+                                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,926" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <Assign sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_5">
+                                                      <Assign.To>
+                                                        <OutArgument x:TypeArguments="x:Int32">[bestScore]</OutArgument>
+                                                      </Assign.To>
+                                                      <Assign.Value>
+                                                        <InArgument x:TypeArguments="x:Int32">[candidateScore]</InArgument>
+                                                      </Assign.Value>
+                                                    </Assign>
+                                                    <Assign sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_6">
+                                                      <Assign.To>
+                                                        <OutArgument x:TypeArguments="x:String">[bestProductName]</OutArgument>
+                                                      </Assign.To>
+                                                      <Assign.Value>
+                                                        <InArgument x:TypeArguments="x:String">[ResultRow("ProductName").ToString().Trim()]</InArgument>
+                                                      </Assign.Value>
+                                                    </Assign>
+                                                    <Assign sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_8">
+                                                      <Assign.To>
+                                                        <OutArgument x:TypeArguments="x:String">[bestPrice]</OutArgument>
+                                                      </Assign.To>
+                                                      <Assign.Value>
+                                                        <InArgument x:TypeArguments="x:String">[If(Double.Parse(If(ResultRow.Table.Columns.Contains("SalePrice") AndAlso System.Text.RegularExpressions.Regex.IsMatch(ResultRow("SalePrice").ToString(), "\d") AndAlso Not System.Text.RegularExpressions.Regex.IsMatch(ResultRow("SalePrice").ToString(), "\d+\s*(?:יח|ב\s*-)"), System.Text.RegularExpressions.Regex.Match(ResultRow("SalePrice").ToString().Replace("₪", "").Replace(",", "."), "\d+(\.\d+)?").Value, "0"), System.Globalization.CultureInfo.InvariantCulture) &gt; 0 AndAlso Double.Parse(If(ResultRow.Table.Columns.Contains("SalePrice") AndAlso System.Text.RegularExpressions.Regex.IsMatch(ResultRow("SalePrice").ToString(), "\d") AndAlso Not System.Text.RegularExpressions.Regex.IsMatch(ResultRow("SalePrice").ToString(), "\d+\s*(?:יח|ב\s*-)"), System.Text.RegularExpressions.Regex.Match(ResultRow("SalePrice").ToString().Replace("₪", "").Replace(",", "."), "\d+(\.\d+)?").Value, "0"), System.Globalization.CultureInfo.InvariantCulture) &lt; Double.Parse(If(System.Text.RegularExpressions.Regex.IsMatch(ResultRow("Price").ToString(), "\d"), System.Text.RegularExpressions.Regex.Match(ResultRow("Price").ToString().Replace("₪", "").Replace(",", "."), "\d+(\.\d+)?").Value, "999999"), System.Globalization.CultureInfo.InvariantCulture), Double.Parse(If(ResultRow.Table.Columns.Contains("SalePrice") AndAlso System.Text.RegularExpressions.Regex.IsMatch(ResultRow("SalePrice").ToString(), "\d") AndAlso Not System.Text.RegularExpressions.Regex.IsMatch(ResultRow("SalePrice").ToString(), "\d+\s*(?:יח|ב\s*-)"), System.Text.RegularExpressions.Regex.Match(ResultRow("SalePrice").ToString().Replace("₪", "").Replace(",", "."), "\d+(\.\d+)?").Value, "0"), System.Globalization.CultureInfo.InvariantCulture), Double.Parse(If(System.Text.RegularExpressions.Regex.IsMatch(ResultRow("Price").ToString(), "\d"), System.Text.RegularExpressions.Regex.Match(ResultRow("Price").ToString().Replace("₪", "").Replace(",", "."), "\d+(\.\d+)?").Value, "0"), System.Globalization.CultureInfo.InvariantCulture)).ToString(System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
+                                                      </Assign.Value>
+                                                    </Assign>
+                                                    <Assign sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_15">
+                                                      <Assign.To>
+                                                        <OutArgument x:TypeArguments="x:String">[bestUnitPriceText]</OutArgument>
+                                                      </Assign.To>
+                                                      <Assign.Value>
+                                                        <InArgument x:TypeArguments="x:String">[If(ResultRow.Table.Columns.Contains("UnitPriceText"), ResultRow("UnitPriceText").ToString().Trim(), "")]</InArgument>
+                                                      </Assign.Value>
+                                                    </Assign>
+                                                    <Assign sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="Assign_20">
+                                                      <Assign.To>
+                                                        <OutArgument x:TypeArguments="x:String">[bestPromotionText]</OutArgument>
+                                                      </Assign.To>
+                                                      <Assign.Value>
+                                                        <InArgument x:TypeArguments="x:String" xml:space="preserve">[If(
+    ResultRow.Table.Columns.Contains("SalePrice"),
+    ResultRow("SalePrice").ToString().Trim(),
+    If(
+        ResultRow.Table.Columns.Contains("RegularPrice"),
+        ResultRow("RegularPrice").ToString().Trim(),
+        String.Empty
+    )
+)]</InArgument>
+                                                      </Assign.Value>
+                                                    </Assign>
+                                                  </Sequence>
+                                                </If.Then>
+                                                <If.Else>
+                                                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,25" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </Sequence>
+                                                </If.Else>
+                                              </If>
+                                            </Sequence>
+                                          </If.Then>
+                                          <If.Else>
+                                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="486,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </Sequence>
+                                          </If.Else>
+                                        </If>
+                                      </Sequence>
+                                    </If.Else>
+                                  </If>
+                                </Sequence>
+                              </ActivityAction>
+                            </ui:ForEachRow.Body>
+                          </ui:ForEachRow>
+                          <If Condition="[bestScore &gt; 0]" sap:VirtualizedContainerService.HintSize="596,2440" sap2010:WorkflowViewState.IdRef="If_10">
+                            <If.Then>
+                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="522,1719.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign sap:VirtualizedContainerService.HintSize="488,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_16">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:Double">[effectiveUnitPrice]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:Double">[Double.Parse(If(System.Text.RegularExpressions.Regex.IsMatch(bestPrice, "\d"), System.Text.RegularExpressions.Regex.Match(bestPrice.Replace(",", "."), "\d+(\.\d+)?").Value, "0"), System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <If Condition="[CurrentRow(&quot;יחידה&quot;).ToString().Trim() = &quot;ק&quot;&quot;ג&quot; AndAlso&#xA;(bestUnitPriceText.Contains(&quot;גרם&quot;) OrElse&#xA; bestUnitPriceText.Contains(&quot;ק&quot;&quot;ג&quot;))]" sap:VirtualizedContainerService.HintSize="488,785.3333333333334" sap2010:WorkflowViewState.IdRef="If_16">
+                                  <If.Then>
+                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="486,620" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <Assign sap:VirtualizedContainerService.HintSize="452,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_17">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:Double">[effectiveUnitPrice]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:Double">[Double.Parse(If(System.Text.RegularExpressions.Regex.Match(bestUnitPriceText, "(\d+(?:[.,]\d+)?)\s*₪?\s*ל-\s*100\s*גרם").Success, System.Text.RegularExpressions.Regex.Match(bestUnitPriceText, "(\d+(?:[.,]\d+)?)\s*₪?\s*ל-\s*100\s*גרם").Groups(1).Value, If(System.Text.RegularExpressions.Regex.Match(bestUnitPriceText, "(\d+(?:[.,]\d+)?)\s*₪?\s*ל-\s*(?:1\s*ק""ג|1000\s*גרם)").Success, System.Text.RegularExpressions.Regex.Match(bestUnitPriceText, "(\d+(?:[.,]\d+)?)\s*₪?\s*ל-\s*(?:1\s*ק""ג|1000\s*גרם)").Groups(1).Value, If(System.Text.RegularExpressions.Regex.IsMatch(bestPrice, "\d"), System.Text.RegularExpressions.Regex.Match(bestPrice, "\d+(?:[.,]\d+)?").Value, "0"))).Replace(",", "."), System.Globalization.CultureInfo.InvariantCulture) * If(System.Text.RegularExpressions.Regex.Match(bestUnitPriceText, "(\d+(?:[.,]\d+)?)\s*₪?\s*ל-\s*100\s*גרם").Success, 10.0, 1.0)]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <If Condition="[CurrentRow(&quot;יחידה&quot;).ToString().Trim() = &quot;ק&quot;&quot;ג&quot; AndAlso&#xA;System.Text.RegularExpressions.Regex.IsMatch(&#xA;    bestPromotionText,&#xA;    &quot;^\s*ב\s*-\s*\d+(?:[.,]\d+)?\s*₪\s*לק&quot;&quot;ג&quot;&#xA;&#x9;)]" sap:VirtualizedContainerService.HintSize="452,383.3333333333333" sap2010:WorkflowViewState.IdRef="If_17">
+                                        <If.Then>
+                                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,227.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Assign sap:VirtualizedContainerService.HintSize="416,167.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_21">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:Double">[effectiveUnitPrice]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:Double" xml:space="preserve">[If(
+    System.Text.RegularExpressions.Regex.IsMatch(bestProductName, "ארוז|מארז"),
+    effectiveUnitPrice,
+    Double.Parse(
+        System.Text.RegularExpressions.Regex.Match(
+            bestPromotionText,
+            "^\s*ב\s*-\s*(\d+(?:[.,]\d+)?)\s*₪\s*לק""ג"
+        ).Groups(1).Value.Replace(",", "."),
+        System.Globalization.CultureInfo.InvariantCulture
+    )
+)]</InArgument>
+                                              </Assign.Value>
+                                            </Assign>
+                                          </Sequence>
+                                        </If.Then>
+                                        <If.Else>
+                                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </Sequence>
+                                        </If.Else>
+                                      </If>
+                                    </Sequence>
+                                  </If.Then>
+                                  <If.Else>
+                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="486,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </Sequence>
+                                  </If.Else>
+                                </If>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="488,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Info" Message="[&quot;PRICE CHECK | &quot; &amp; requestedProduct &amp;&#xA;&quot; | Original: &quot; &amp; bestPrice &amp;&#xA;&quot; | Unit info: &quot; &amp; bestUnitPriceText &amp;&#xA;&quot; | Effective: &quot; &amp; effectiveUnitPrice.ToString(System.Globalization.CultureInfo.InvariantCulture)]" />
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="488,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_25" Level="Info" Message="[&quot;PROMO CHECK | &quot; &amp; requestedProduct &amp;&#xA;&quot; | Selected: &quot; &amp; bestProductName &amp;&#xA;&quot; | Promotion: &quot; &amp; bestPromotionText]" />
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="488,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="Info" Message="[&quot;Unit price info | &quot; &amp; requestedProduct &amp; &quot; | &quot; &amp; bestUnitPriceText]" />
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="488,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_18" Message="[&quot;BEST MATCH | Requested: &quot; &amp; requestedProduct &amp;&#xA;&quot; | Found: &quot; &amp; bestProductName &amp;&#xA;&quot; | Price: &quot; &amp; bestPrice &amp;&#xA;&quot; | Score: &quot; &amp; bestScore.ToString()]" />
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="522,580.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="488,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_19" Message="[&quot;NO MATCH | Requested: &quot; &amp; requestedProduct]" />
+                                <Assign sap:VirtualizedContainerService.HintSize="488,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_11">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[bestProductName]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[String.Empty]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <Assign sap:VirtualizedContainerService.HintSize="488,167.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_12">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[bestPrice]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">["0"]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[New Object() {&#xA;    requestedProduct,&#xA;    CurrentRow(&quot;כמות&quot;).ToString(),&#xA;    CurrentRow(&quot;יחידה&quot;).ToString(),&#xA;    bestProductName,&#xA;    If(bestScore &gt; 0, effectiveUnitPrice.ToString(&quot;0.################&quot;, System.Globalization.CultureInfo.InvariantCulture), &quot;0&quot;),&#xA;    bestScore.ToString(),&#xA;    If(bestScore &gt; 0, &quot;נמצא&quot;, &quot;לא נמצא&quot;),&#xA;   If(&#xA;    bestScore &gt; 0 AndAlso&#xA;    System.Text.RegularExpressions.Regex.IsMatch(bestPrice, &quot;^\d+([.,]\d+)?$&quot;),&#xA;    Math.Round(&#xA;        Val(CurrentRow(&quot;כמות&quot;).ToString().Replace(&quot;,&quot;, &quot;.&quot;)) *&#xA;        effectiveUnitPrice,&#xA;        2,&#xA;        System.MidpointRounding.AwayFromZero&#xA;    ).ToString(&quot;F2&quot;, System.Globalization.CultureInfo.InvariantCulture),&#xA;    &quot;0.00&quot;&#xA;)&#xA;}]" DataTable="[dt_FinalResults]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="596,214" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEachRow.Body>
+            </ui:ForEachRow>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="668,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_20" Message="[&quot;Total result rows: &quot; &amp; dt_FinalResults.Rows.Count.ToString()]" />
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.OCREngine>
+        <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd2:Rectangle, x:String))">
+          <ActivityFunc.Argument>
+            <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+          </ActivityFunc.Argument>
+        </ActivityFunc>
+      </uix:NApplicationCard.OCREngine>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-11, -11, 1942, 1042" BrowserType="Chrome" ContentHash="Xj_RJBzeckCpVhObSzLljA" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAACpSURBVDhP7dCxDcIwEEZhSymokFBqFmCA1LADkzAAKzABG7ABCgyQMqKloaKmpQjvSb4CyZEoKHPS19iXi+9PU/2hbov1Mqsxy8ejRU9lH+Z+48EDd/RoccAGNmmFLfY44oQLOvQOGApeiOYn3ij1DWMDfuaAM67wSa7i30vNvsI7XxQrdw6IXQ3FMN3fHGw0H9fYwRwamEmEXudsv4sLk47mKh9PVayUPgLGpGyfSlwUAAAAAElFTkSuQmCC" InformativeScreenshot="ff1641fa0f2a54bb34971bf80065c3f1.jpg" Reference="Rj4KLv9-7UKJO9p1_IwoGA/lal0ZvIX6kaQoZzuZqpN_A" Selector="&lt;html app='chrome.exe' title='שופרסל אונליין : סופרמרקט, פארם קוסמטיקה והכל בית – כל מה שצריך במשלוח עד הבית | Shufersal' /&gt;" Url="https://www.shufersal.co.il/online/" Version="V3" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+    <Assign DisplayName="Set Excel path" sap:VirtualizedContainerService.HintSize="704,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_ExcelPath_Victory">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_ExcelPath]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[System.IO.Path.Combine(Environment.CurrentDirectory, "Shufersal.xlsx")]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="If System.IO.File.Exists(excelPath) Then System.IO.File.Delete(excelPath)" DisplayName="Replace previous Excel" sap:VirtualizedContainerService.HintSize="704,406.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeCode_Delete_Victory">
+      <ui:InvokeCode.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="excelPath">[out_ExcelPath]</InArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
+    <ui:WriteRange DataTable="[dt_FinalResults]" DisplayName="Write Shufersal Excel" sap:VirtualizedContainerService.HintSize="704,282" sap2010:WorkflowViewState.IdRef="WriteRange_Victory" SheetName="[&quot;שופרסל&quot;]" StartingCell="[&quot;A1&quot;]" WorkbookPath="[out_ExcelPath]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="704,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_Excel_Victory" Message="[&quot;Victory excel: &quot; &amp; out_ExcelPath &amp; &quot; | rows: &quot; &amp; dt_FinalResults.Rows.Count.ToString()]" />
+  </Sequence>
+</Activity>
